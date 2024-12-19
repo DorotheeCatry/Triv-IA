@@ -13,7 +13,7 @@ class Plateau:
 
 
     def creation_cases(self):
-        types_possibles = ['Camembert', 'Camembert']
+        types_possibles = ['Camembert', 'Normale']
         categories = ['Base de données', 'Python', 'Unix', 'Actu IA', 'Devops',"Personnalité de l'IA"]
 
 

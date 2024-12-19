@@ -15,7 +15,7 @@ class Joueur:
 
     def a_tous_les_camemberts(self):
         """Vérifie si le joueur a collecté les 6 camemberts."""
-        if len(self.camemberts) == 1:
+        if len(self.camemberts) == 6:
             return True
 
     def lancer_de(self):

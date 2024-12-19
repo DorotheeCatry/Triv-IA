@@ -169,8 +169,8 @@ class Jeu:
         print(f"\n\n\n🎉 Bienvenue dans le jeu 🎉")
         self.initialiser_joueurs()
         
-        while self.lancer_manche() == True:
-            break
+        while self.lancer_manche():
+            pass
 
 
 if __name__ == '__main__':
