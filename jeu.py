@@ -96,7 +96,7 @@ class Jeu:
                 joueur.position -= resultat
 
         joueur.position = joueur.position % (len(self.plateau.cases))
-        
+        clear_console()
         self.plateau.creer_plateau(element_joueurs)
 
 
@@ -125,7 +125,6 @@ class Jeu:
                 time.sleep(1)
                 print(f"\n{element_joueurs[1]} {joueur.nom} rejoue !")
                 time.sleep(1)
-                clear_console()
                 return False  # Le joueur continue de jouer1
                 
 
@@ -136,7 +135,6 @@ class Jeu:
         
             print("Mauvaise réponse 😞.")
             time.sleep(1)
-            clear_console()
             self.tour_actuel = (self.tour_actuel +1 ) % len(self.joueurs)
             return False
 
@@ -169,7 +167,7 @@ class Jeu:
         print(f"\n\n\n🎉 Bienvenue dans le jeu 🎉")
         self.initialiser_joueurs()
         
-        while self.lancer_manche():
+        while not self.lancer_manche():
             pass
 
 
