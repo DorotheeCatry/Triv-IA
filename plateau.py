@@ -1,5 +1,6 @@
 
 from case import Case
+from utils import code_couleur
 import random
 
 
@@ -33,32 +34,20 @@ class Plateau:
                 new_case = Case(categorie= cat_case_normale,position = i, type = types_possibles[1])
                 self.cases.append(new_case)
 
-
-    # def deplacement_joueur(self,i):
-    #     lancer = self.joueurs[i].lancer_de()
-    #     choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
-    #     if choix_mouvement != 'ar' or choix_mouvement != 'av':
-    #         choix_mouvement = input('Si vous voulez aller en avant tapez av pour aller en arriere tapez ar ')
-
-    #     if choix_mouvement == 'av':
-    #         self.joueurs[i].position += lancer
-    #     else:
-    #         choix_mouvement == 'ar'
-    #         self.joueurs[i].position -= lancer
-
-
     def creer_plateau(self, joueur):
 
         types_possibles = ['Camembert', 'Normale']
         categories = ['Base de données', 'Python', 'Unix', 'Actu IA', 'Devops',"Personnalité de l'IA"]
-        code_couleurs = {
-            "bleu": "Base de données",
-            "vert": "Python",
-            "rouge": "Unix",
-            "jaune": "Actu IA",
-            "orange": "Devops",
-            "violet": "Personnalités de l'IA"
-            }
+
+        code_couleur = [
+                    ["🟦",  'Base de données'],
+                    ["🟩",  'Python'],
+                    ["🟥",  'Unix'],
+                    ["🟨",  'Actua Ia'],
+                    ["🟧",  'Devops'],
+                    ["🟪",  "Personnalités de l'IA"]
+                ]
+        
         emojis = [
             "🟦",  # Carré bleu
             "🟩",  # Carré vert
@@ -120,7 +109,7 @@ class Plateau:
                     else:
                         print(emojis[5], end = '   ')
                     
-        print('\n')
+
 
 
         c = 35
@@ -257,8 +246,14 @@ class Plateau:
                         print(emojis_ronds[5], end = '    ')
                     else:
                         print(emojis[5], end = '   ')
-
-
+        print('\n\n\n==========================================\n\n')
+        print( 
+            f'{code_couleur[0][0]} = {code_couleur[0][1]}, '
+            f'{code_couleur[1][0]} = {code_couleur[1][1]}, '
+            f'{code_couleur[2][0]} = {code_couleur[2][1]}, '
+            f'{code_couleur[3][0]} = {code_couleur[3][1]}, '
+            f'{code_couleur[4][0]} = {code_couleur[4][1]}, '
+            f'{code_couleur[5][0]} = {code_couleur[5][1]}')
 
 
 

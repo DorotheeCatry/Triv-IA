@@ -1,13 +1,16 @@
-from case import Case
 from jeu import Jeu
-from joueur import Joueur
-from plateau import Plateau
-import time
 import os
+from plateau import Plateau
+
 clear = os.system('cls' if os.name == 'nt' else 'clear')
 
-plateau_du_jeu = Plateau()
+if __name__ == '__main__':
+    plateau_du_jeu = Plateau()
 
-plateau_du_jeu.creation_cases()
 
-partie = Jeu()
+    plateau_du_jeu.creation_cases()
+    # plateau_du_jeu.creer_plateau()
+
+    partie = Jeu()
+    partie.lancer_jeu()
+    partie.lancer_manche()

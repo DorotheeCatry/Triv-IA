@@ -1,7 +1,10 @@
 from plateau import Plateau
-import random
 from joueur import Joueur
+from utils import clear_console, clear_partial_ansi, dice_asci
 import json
+import random
+import time
+
 
 class Jeu:
     def __init__(self):
@@ -36,16 +39,35 @@ class Jeu:
 
 
     def lancer_manche(self):
+        clear_console()
         """Exécute une manche du jeu."""
         joueur = self.joueurs[self.tour_actuel][0]
         element_joueurs = self.joueurs[self.tour_actuel]
+
+
+
         print(f"\nC'est au tour de {joueur.nom} !")
+
+ 
+
         self.plateau.creer_plateau(element_joueurs)
 
         # Lancer le dé
-        resultat = joueur.lancer_de()
-        print(f"{joueur.nom} a lancé le dé et a obtenu : {resultat}")
 
+        print('')
+        for i in range(11):
+            print(dice_asci[i%5])
+            time.sleep(0.2)
+            clear_partial_ansi(6)
+            clear_partial_ansi(1)
+
+
+
+
+        print('===============================================')
+        resultat = joueur.lancer_de()
+        print(f"{joueur.nom} a lancé le dé et a obtenu : {resultat}   {dice_asci[resultat - 1]}")
+        
         
         # Déplacer le joueur
 
@@ -61,12 +83,12 @@ class Jeu:
                 joueur.position -= resultat
 
         joueur.position = joueur.position % (len(self.plateau.cases))
-        print(joueur.position)
+        
         self.plateau.creer_plateau(element_joueurs)
 
 
             
-        print(f"{joueur.nom} se trouve maintenant sur une case {self.plateau.cases[joueur.position].categorie}.")
+        print(f"\n\n{joueur.nom} se trouve maintenant sur une case {self.plateau.cases[joueur.position].categorie}.")
 
 
         if self.poser(joueur.position):
@@ -83,11 +105,14 @@ class Jeu:
 
             # Si bonne réponse, rejouer
             print(f"{joueur.nom} rejoue !")
+            time.sleep(1)
+            clear_console()
             return False  # Le joueur continue de jouer
 
         else:
             print("Mauvaise réponse 😞.")
-        
+            time.sleep(1)
+            clear_console()
             self.tour_actuel = (self.tour_actuel +1 ) % len(self.joueurs)
             return False
 
