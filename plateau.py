@@ -274,13 +274,7 @@ class Plateau:
         return self.cases[i]
 
 
-if __name__ == '__main__':
-    partie = Plateau()
 
-    partie.creation_cases()
-    partie.creer_plateau()
-    partie.creation_joueur()
-    print(partie.joueurs)
 
 
     
